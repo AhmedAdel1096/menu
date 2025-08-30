@@ -21,7 +21,7 @@ const ImagePage = ({ id, title, isCover }) => {
   return (
     <div id={`page-${id}`} className={`page-container page-${id}`}>
       <img src={`/${imageSrc}`} alt={title} className="full-page-image" />
-      {isCover ? (
+      {isCover && (
         <div className="overlay-content">
           <div className="links">
             {menuTitles.map((item) => (
@@ -31,13 +31,10 @@ const ImagePage = ({ id, title, isCover }) => {
             ))}
           </div>
         </div>
-      ) : (
-        <a href="#page-1" className="back-link">
-          Go Back
-        </a>
       )}
     </div>
   );
 };
 
 export default ImagePage;
+
