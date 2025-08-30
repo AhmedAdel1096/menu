@@ -17,7 +17,7 @@ body, html, #root, .App {
 }
 
 .menu-page-section {
-  min-height: 100vh;
+  height: 100vh; /* Changed from min-height to ensure full page scroll */
   width: 100vw;
   position: relative;
   overflow: hidden;
@@ -35,29 +35,34 @@ body, html, #root, .App {
   box-sizing: border-box;
 }
 
-/* Image styling */
 .full-page-image {
   width: 100%;
-  height: 100vh;
-  object-fit: cover;
+  height: 100%;
+  object-fit: cover; /* Use cover for other images to fill the screen */
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
 }
 
-/* Overlay content for cover page (page-1) */
+.page-1 .full-page-image {
+  object-fit: contain; /* Use contain for the cover page to show the full image */
+}
+
 .page-1 .overlay-content {
-  position: relative;
+  position: absolute;     /* allow precise vertical placement */
+  top: 2vh;              /* move up/down to position under logo (tweak as needed) */
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Pushes content to the bottom */
   align-items: center;
-  padding-bottom: 20vh; /* Adjust vertical position */
-  box-sizing: border-box;
+  justify-content: flex-start; /* keep items stacked from top */
   width: 100%;
+  padding: 0;              /* remove large padding-top we had before */
+  box-sizing: border-box;
+  pointer-events: auto;
 }
 
 .page-1 h1 {
@@ -73,7 +78,7 @@ body, html, #root, .App {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .page-1 .link-item {
@@ -97,7 +102,7 @@ body, html, #root, .App {
 /* Styling for other pages */
 .page-container:not(.page-1) .full-page-image {
   position: static;
-  object-fit: cover; /* Changed to cover to fill the screen */
+  object-fit: contain; /* Changed to contain to show the whole image */
   width: 100%;
   height: 100vh;
   max-width: 100%;
@@ -129,20 +134,36 @@ body, html, #root, .App {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .page-1 h1 {
-    font-size: 8vw;
+    font-size: 10vw; /* Increased font size for smaller screens */
+  }
+
+  .page-1 .overlay-content {
+    padding-top: 15vh;
   }
 
   .page-1 .links {
-    padding-bottom: 5vh;
     gap: 10px;
   }
 
   .page-1 .link-item {
-    font-size: 3vw;
-    min-width: 50vw;
+    font-size: 2.0vw;
+    min-width: 30vw;
   }
 
   .back-link {
-    font-size: 2.5vw;
+    font-size: 3.5vw; /* Increased font size for smaller screens */
+    padding: 10px 20px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .page-1 h1 {
+    font-size: 12vw;
+  }
+
+  .page-1 .link-item {
+    font-size: 4.5vw;
+    min-width: 70vw;
   }
 }

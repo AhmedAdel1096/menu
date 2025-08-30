@@ -23,7 +23,6 @@ const ImagePage = ({ id, title, isCover }) => {
       <img src={`/${imageSrc}`} alt={title} className="full-page-image" />
       {isCover ? (
         <div className="overlay-content">
-          <h1>Go&Sips Menu</h1>
           <div className="links">
             {menuTitles.map((item) => (
               <a key={item.id} href={`#page-${item.id}`} className="link-item">
