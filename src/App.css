@@ -1,5 +1,3 @@
-/* src/App.css */
-
 /* General styling */
 body, html, #root, .App {
   margin: 0;
@@ -10,20 +8,18 @@ body, html, #root, .App {
   scroll-behavior: smooth;
 }
 
-/* Menu Page container */
 .menu-container {
   display: flex;
   flex-direction: column;
 }
 
 .menu-page-section {
-  height: 100vh; /* Changed from min-height to ensure full page scroll */
+  height: 100vh;
   width: 100vw;
   position: relative;
   overflow: hidden;
 }
 
-/* Page container for individual image pages */
 .page-container {
   height: 100%;
   width: 100%;
@@ -38,7 +34,7 @@ body, html, #root, .App {
 .full-page-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Use cover for other images to fill the screen */
+  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
@@ -46,21 +42,21 @@ body, html, #root, .App {
 }
 
 .page-1 .full-page-image {
-  object-fit: contain; /* Use contain for the cover page to show the full image */
+  object-fit: contain;
 }
 
 .page-1 .overlay-content {
-  position: absolute;     /* allow precise vertical placement */
-  top: 2vh;              /* move up/down to position under logo (tweak as needed) */
+  position: absolute;
+  top: 2vh;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* keep items stacked from top */
+  justify-content: flex-start;
   width: 100%;
-  padding: 0;              /* remove large padding-top we had before */
+  padding: 0;
   box-sizing: border-box;
   pointer-events: auto;
 }
@@ -99,10 +95,9 @@ body, html, #root, .App {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Styling for other pages */
 .page-container:not(.page-1) .full-page-image {
   position: static;
-  object-fit: contain; /* Changed to contain to show the whole image */
+  object-fit: contain;
   width: 100%;
   height: 100vh;
   max-width: 100%;
@@ -131,10 +126,9 @@ body, html, #root, .App {
   background-color: #ddd;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .page-1 h1 {
-    font-size: 10vw; /* Increased font size for smaller screens */
+    font-size: 10vw;
   }
 
   .page-1 .overlay-content {
@@ -151,7 +145,7 @@ body, html, #root, .App {
   }
 
   .back-link {
-    font-size: 3.5vw; /* Increased font size for smaller screens */
+    font-size: 3.5vw;
     padding: 10px 20px;
   }
 }
