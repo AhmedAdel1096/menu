@@ -20,7 +20,12 @@ const ImagePage = ({ id, title, isCover }) => {
 
   return (
     <div id={`page-${id}`} className={`page-container page-${id}`}>
-      <img src={`/${imageSrc}`} alt={title} className="full-page-image" />
+      {/* Use process.env.PUBLIC_URL for the image path */}
+      <img
+        src={`${process.env.PUBLIC_URL}/${imageSrc}`}
+        alt={title}
+        className="full-page-image"
+      />
       {isCover && (
         <div className="overlay-content">
           <div className="links">
@@ -37,4 +42,3 @@ const ImagePage = ({ id, title, isCover }) => {
 };
 
 export default ImagePage;
-
