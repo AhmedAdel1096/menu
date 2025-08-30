@@ -1,41 +1,41 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
 
-const ImagePage = ({ coverPage }) => {
-  const { id } = useParams();
-  const imageId = coverPage ? '1' : id;
-
+const ImagePage = ({ id, title, isCover }) => {
   const images = {
-    1: { src: 'images/1.jpeg', title: 'Cover Page' },
-    2: { src: 'images/2.jpeg', title: 'Cold Classics & Frappe' },
-    3: { src: 'images/3.jpeg', title: 'Hot Classics & Filter Coffees' },
-    4: { src: 'images/4.jpeg', title: 'Sweet Tooth & Bakery' },
-    5: { src: 'images/5.jpeg', title: 'Mojitos, Non-coffee & Fresh Juice' },
+    1: 'images/1.jpeg',
+    2: 'images/2.jpeg',
+    3: 'images/3.jpeg',
+    4: 'images/4.jpeg',
+    5: 'images/5.jpeg',
   };
 
-  const imageSrc = images[imageId].src;
-  const pageTitle = images[imageId].title;
+  const imageSrc = images[id];
+
+  const menuTitles = [
+    { id: '2', text: 'Cold Classics & Frappe' },
+    { id: '3', text: 'Hot Classics & Filter Coffees' },
+    { id: '4', text: 'Sweet Tooth & Bakery' },
+    { id: '5', text: 'Mojitos, Non-coffee & Fresh Juice' },
+  ];
 
   return (
-    <div className={`page-container page-${imageId}`}>
-      <img src={`/${imageSrc}`} alt={pageTitle} className="full-page-image" />
-      {coverPage ? (
+    <div id={`page-${id}`} className={`page-container page-${id}`}>
+      <img src={`/${imageSrc}`} alt={title} className="full-page-image" />
+      {isCover ? (
         <div className="overlay-content">
           <h1>Go&Sips Menu</h1>
           <div className="links">
-            {Object.keys(images).filter(key => key !== '1').map((key) => (
-              <Link key={key} to={`/image/${key}`} className="link-item">
-                {images[key].title}
-              </Link>
+            {menuTitles.map((item) => (
+              <a key={item.id} href={`#page-${item.id}`} className="link-item">
+                {item.text}
+              </a>
             ))}
           </div>
         </div>
       ) : (
-        <div className="back-link-container">
-          <Link to="/" className="back-link">
-            &larr; Back to Main Page
-          </Link>
-        </div>
+        <a href="#page-1" className="back-link">
+          Go Back
+        </a>
       )}
     </div>
   );

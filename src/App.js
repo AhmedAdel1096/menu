@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ImagePage from './components/ImagePage';
+import MenuPage from './components/MenuPage';
 import './App.css';
 
 function App() {
@@ -8,8 +8,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<ImagePage coverPage={true} />} />
-          <Route path="/image/:id" element={<ImagePage />} />
+          <Route path="/" element={<MenuPage />} />
+          <Route path="/image/:id" element={<MenuPage />} />
         </Routes>
       </div>
     </BrowserRouter>
