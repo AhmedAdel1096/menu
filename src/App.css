@@ -47,18 +47,16 @@ body, html, #root, .App {
 
 .page-1 .overlay-content {
   position: absolute;
-  top: 2vh;
+  top: 20vh;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   width: 100%;
-  padding: 0;
   box-sizing: border-box;
-  pointer-events: auto;
 }
 
 .page-1 h1 {
@@ -86,9 +84,9 @@ body, html, #root, .App {
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
   transition: background-color 0.3s;
-  font-size: 1.5vw;
+  font-size: 1.0vw;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  min-width: 25vw;
+  width: 15vw;
 }
 
 .page-1 .link-item:hover {
@@ -131,17 +129,13 @@ body, html, #root, .App {
     font-size: 10vw;
   }
 
-  .page-1 .overlay-content {
-    padding-top: 15vh;
-  }
-
   .page-1 .links {
     gap: 10px;
   }
 
   .page-1 .link-item {
     font-size: 2.0vw;
-    min-width: 30vw;
+    width: 30vw;
   }
 
   .back-link {
@@ -158,6 +152,6 @@ body, html, #root, .App {
 
   .page-1 .link-item {
     font-size: 4.5vw;
-    min-width: 70vw;
+    width: 70vw;
   }
 }
