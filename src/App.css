@@ -64,19 +64,23 @@ html,
 
 /* MOBILE (< 480px): Override styles for menu pages ONLY */
 @media (max-width: 480px) {
-  /* This rule targets only the menu pages (2, 3, 4, 5) on small screens.
-     It forces the image to cover the container, fixing the gap issue,
-     and resets its positioning to work correctly. The cover page is NOT affected. */
-  .page-container:not(.page-1) .full-page-image {
-    object-fit: cover;
-    position: absolute;
-    height: 100%;
+  .menu-container {
+    width: 480px; /* Set minimum width to match image width */
   }
 
-  .page-1 .full-page-image {
-    object-fit: cover;
-    position: absolute;
-    height: 100%;
+  .menu-page-section {
+    width: 480px; /* Each page should be at least 480px wide */
+    min-width: 480px;
+  }
+
+  .page-container {
+    width: 480px;
+    min-width: 480px;
+  }
+
+  /* Ensure horizontal scrolling is enabled */
+  body, html, #root, .App {
+    overflow-x: auto;
   }
 }
 
